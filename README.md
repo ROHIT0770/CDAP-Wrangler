@@ -7,27 +7,27 @@ This repository contains an enhancement to the [CDAP Wrangler](https://github.co
 
 ## 🚀 Features
 
-- **New Grammar Support**: Enhanced directive grammar to recognize byte and time units.
-- **Custom Token Parsers**: Added `ByteSize` and `TimeDuration` token types to simplify unit conversion.
-- **Directive Enhancement**: Introduced `AggregateStats` directive to process and summarize byte size and time columns.
-- **Unit & Integration Testing**: Ensured functionality with a comprehensive test suite.
-- **Developer Prompts**: Added `prompts.txt` to support AI-assisted development.
+- New Grammar Support: Enhanced directive grammar to recognize byte and time units.
+- Custom Token Parsers: Added `ByteSize` and `TimeDuration` token types to simplify unit conversion.
+- Directive Enhancement: Introduced `AggregateStats` directive to process and summarize byte size and time columns.
+- Unit & Integration Testing: Ensured functionality with a comprehensive test suite.
+- Developer Prompts: Added `prompts.txt` to support AI-assisted development.
 
 ---
 
 ## 📁 Project Structure
 
 ### 1. Grammar Updates (`Directives.g4`)
-- **Lexer Additions**: Added support for byte and time units via `BYTE_UNIT`, `TIME_UNIT`.
-- **Parser Rules**: Introduced `byteSizeArg` and `timeDurationArg`.
-- **Recompilation**: Regenerated using `mvn clean compile`.
+- Lexer Additions: Added support for byte and time units via `BYTE_UNIT`, `TIME_UNIT`.
+- Parser Rules: Introduced `byteSizeArg` and `timeDurationArg`.
+- Recompilation: Regenerated using `mvn clean compile`.
 
 ### 2. API Additions (`wrangler-api`)
-- **`ByteSize.java`**:
+- `ByteSize.java`:
   Converts strings like `10KB`, `1.5MB` into corresponding byte values.
-- **`TimeDuration.java`**:
+- `TimeDuration.java`:
   Converts time expressions like `200ms`, `2s` into milliseconds.
-- **`TokenType.java`**:
+- `TokenType.java`:
   Integrated `BYTE_SIZE` and `TIME_DURATION` token types.
 
 ### 3. Core Parser Enhancements (`wrangler-core`)
