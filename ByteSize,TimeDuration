@@ -1,0 +1,11 @@
+@Test
+public void testByteSizeParsing() {
+    ByteSize b = new ByteSize("1.5MB");
+    Assert.assertEquals(1572864.0, b.getBytes(), 0.001);
+}
+
+@Test
+public void testTimeDurationParsing() {
+    TimeDuration t = new TimeDuration("2s");
+    Assert.assertEquals(2000, t.getMilliseconds(), 0.001);
+}

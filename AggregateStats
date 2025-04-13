@@ -1,0 +1,16 @@
+@Test
+public void testAggregateStats() throws Exception {
+    List<Row> rows = Arrays.asList(
+        new Row().add("data_transfer_size", "2MB").add("response_time", "1s"),
+        new Row().add("data_transfer_size", "3MB").add("response_time", "2s")
+    );
+
+    String[] recipe = new String[] {
+        "aggregate-stats :data_transfer_size :response_time total_size_mb total_time_sec"
+    };
+
+    List<Row> result = TestingRig.execute(recipe, rows);
+    Assert.assertEquals(1, result.size());
+    Assert.assertEquals(5.0, result.get(0).getValue("total_size_mb"), 0.001);
+    Assert.assertEquals(3.0, result.get(0).getValue("total_time_sec"), 0.001);
+}
